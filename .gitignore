@@ -1,0 +1,56 @@
+# ─── Dependências ───────────────────────────────────────────
+node_modules/
+
+# ─── Build Next.js ──────────────────────────────────────────
+.next/
+out/
+build/
+dist/
+
+# ─── TypeScript cache ────────────────────────────────────────
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# ─── Variáveis de ambiente (NUNCA subir) ─────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# ─── Editores e IDEs ─────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Ferramentas de IA (não fazem parte da aplicação) ────────
+.claude/
+.code-review-graph/
+.cursorrules
+.windsurfrules
+.opencode.json
+.mcp.json
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+
+# ─── Pastas de skills/receitas (não são da aplicação) ────────
+skills/
+Mafia-Claude-Skills/
+marketingskills/
+studio-recipes/
+
+# ─── Logs e temporários ──────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ─── Misc ────────────────────────────────────────────────────
+.vercel
+.turbo

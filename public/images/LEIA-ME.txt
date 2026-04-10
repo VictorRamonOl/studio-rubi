@@ -1,0 +1,53 @@
+=====================================================
+GUIA DE IMAGENS — Rubi Studio Landing Page
+=====================================================
+
+Salve cada imagem abaixo com o nome e extensão exatos.
+Todos os arquivos ficam nesta pasta: public/images/
+
+-----------------------------------------------------
+LOGOS
+-----------------------------------------------------
+
+logo-nav.png
+  → Logo horizontal dourado com FUNDO TRANSPARENTE
+  → Usado na barra de navegação (navbar)
+  → Tamanho ideal: ~480×120px PNG transparente
+  → Use a versão do logo horizontal (diamante + RUBI + Studio Pilates e Fisioterapia)
+    com fundo transparente. Se não tiver transparente, use o fundo preto ou vinho.
+
+logo-footer.png
+  → Mesmo logo acima — pode ser o mesmo arquivo ou uma versão clara
+  → Usado no rodapé (fundo escuro #2B2224)
+  → A versão dourada fica perfeita sobre fundo escuro
+
+logo-circular.png (opcional)
+  → Logo circular com texto ao redor
+  → Pode ser usado como favicon adicional ou seção sobre
+
+-----------------------------------------------------
+FOTOS
+-----------------------------------------------------
+
+dra-rubia.jpg
+  → Foto da Dra. Rúbia Torres (selfie no estúdio com a parede de palavras)
+  → Usada na seção "Sobre" — proporção 4:5 (retrato)
+  → Qualidade máxima disponível
+
+session-adult.jpg
+  → Foto de atendimento — Dra. Rúbia com paciente adulto no Cadillac
+  → Pode ser usada em seções de serviços ou depoimentos
+
+session-child.jpg
+  → Foto de atendimento — Dra. Rúbia com criança (bola)
+  → Pode ser usada na seção de Crianças (Audiences)
+
+-----------------------------------------------------
+DICA PARA FAVICON
+-----------------------------------------------------
+
+Coloque o logo ícone (somente o diamante+mulher) como:
+  app/favicon.ico  (32×32 ou 64×64)
+  app/icon.png     (512×512 para PWA)
+
+=====================================================
