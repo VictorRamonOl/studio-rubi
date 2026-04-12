@@ -25,10 +25,17 @@ export async function POST(request: NextRequest) {
     const painLabel = PAIN_LABELS[mainPain] ?? mainPain
     const timeLabel = bestTime === "manha" ? "Manhã (7h–12h)" : bestTime === "tarde" ? "Tarde (12h–18h)" : bestTime === "qualquer" ? "Qualquer horário" : "Não informado"
 
+    // Limpa o número e monta o link direto para o WhatsApp DO LEAD
+    const whatsappClean = whatsapp.replace(/\D/g, "")
+    const whatsappNumber = whatsappClean.startsWith("55") ? whatsappClean : `55${whatsappClean}`
+    const whatsappMessage = encodeURIComponent(
+      `Olá ${name}! Vi sua mensagem no site do Studio Ruby. Gostaria de agendar sua avaliação. Qual horário seria melhor para você?`
+    )
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+
     await resend.emails.send({
       from: "Site Studio Ruby <onboarding@resend.dev>",
       to: "rubistudiopilates@gmail.com",
-      replyTo: `${name} <rubistudiopilates@gmail.com>`,
       subject: `Novo lead: ${name} — ${painLabel}`,
       html: `
         <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
@@ -39,10 +46,11 @@ export async function POST(request: NextRequest) {
             <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;">Queixa principal</td><td style="padding:8px 0;font-weight:600;">${painLabel}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;">Melhor horário</td><td style="padding:8px 0;">${timeLabel}</td></tr>
           </table>
-          <a href="https://wa.me/5592992855658?text=Ol%C3%A1%20${encodeURIComponent(name)}%2C%20vi%20sua%20mensagem%20no%20site%20e%20gostaria%20de%20agendar%20sua%20avalia%C3%A7%C3%A3o!"
+          <a href="${whatsappLink}"
              style="display:inline-block;margin-top:20px;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600;">
-            Responder no WhatsApp
+            💬 Responder para ${name} no WhatsApp
           </a>
+          <p style="margin-top:12px;font-size:12px;color:#6b7280;">Clicando no botão acima você abre uma conversa direto com o número <strong>${whatsapp}</strong> com uma mensagem pronta.</p>
           <p style="margin-top:24px;font-size:11px;color:#9ca3af;">Mensagem enviada via rubistudiopilates.com.br</p>
         </div>
       `,
