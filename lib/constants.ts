@@ -18,8 +18,8 @@ export const CONTACT = {
 }
 
 export const HOURS = [
-  { days: "Segunda a Sexta", time: "7h às 20h" },
-  { days: "Sábado", time: "8h às 13h" },
+  { days: "Segunda a Sexta", time: "7h às 19h" },
+  { days: "Sábado", time: "8h às 12h" },
 ]
 
 export const STATS = [
