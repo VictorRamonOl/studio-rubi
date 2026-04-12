@@ -61,6 +61,9 @@ export const metadata: Metadata = {
     images: [`${SITE_URL}/images/og-image.jpg`],
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "lbxF4PTlfHuVEc_wh5j691FXqXPOW_ocrajl_jnbZ4c",
+  },
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: SITE_URL,
