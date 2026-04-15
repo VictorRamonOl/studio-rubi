@@ -29,12 +29,12 @@ export async function POST(request: NextRequest) {
     const whatsappClean = whatsapp.replace(/\D/g, "")
     const whatsappNumber = whatsappClean.startsWith("55") ? whatsappClean : `55${whatsappClean}`
     const whatsappMessage = encodeURIComponent(
-      `Olá ${name}! Vi sua mensagem no site do Studio Ruby. Gostaria de agendar sua avaliação. Qual horário seria melhor para você?`
+      `Olá ${name}! Vi sua mensagem no site do Studio Rubi. Gostaria de agendar sua avaliação. Qual horário seria melhor para você?`
     )
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
     await resend.emails.send({
-      from: "Site Studio Ruby <onboarding@resend.dev>",
+      from: "Site Studio Rubi <onboarding@resend.dev>",
       to: "rubistudiopilates@gmail.com",
       subject: `Novo lead: ${name} — ${painLabel}`,
       html: `

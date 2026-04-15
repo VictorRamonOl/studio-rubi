@@ -17,7 +17,7 @@ const inter = Inter({
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rubistudiopilates.com.br"
 
 export const metadata: Metadata = {
-  title: "Studio Ruby Pilates e Fisioterapia em Manaus | Parque Dez",
+  title: "Studio Rubi Pilates e Fisioterapia em Manaus | Parque Dez",
   description:
     "Pilates terapêutico e fisioterapia em Manaus no Parque Dez. Atendimento individualizado com a Dra. Rúbia Torres — fisioterapeuta com 12 anos de experiência. Trate dor lombar, faça pilates para gestantes, RPG e reabilitação. Agende: (92) 99285-5658.",
   keywords: [
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     "pilates terapêutico parque dez",
     "fisioterapia coluna manaus",
   ],
-  authors: [{ name: "Studio Ruby Pilates e Fisioterapia" }],
+  authors: [{ name: "Studio Rubi Pilates e Fisioterapia" }],
   openGraph: {
-    title: "Studio Ruby Pilates e Fisioterapia | Manaus - AM",
+    title: "Studio Rubi Pilates e Fisioterapia | Manaus - AM",
     description:
       "Pilates terapêutico e fisioterapia em Manaus com atendimento individualizado. Dra. Rúbia Torres — 12 anos de experiência. Viva sem dor, mova-se com leveza.",
     url: SITE_URL,
-    siteName: "Studio Ruby Pilates e Fisioterapia",
+    siteName: "Studio Rubi Pilates e Fisioterapia",
     locale: "pt_BR",
     type: "website",
     images: [
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/images/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Studio Ruby Pilates e Fisioterapia em Manaus — Parque Dez",
+        alt: "Studio Rubi Pilates e Fisioterapia em Manaus — Parque Dez",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Studio Ruby Pilates e Fisioterapia | Manaus - AM",
+    title: "Studio Rubi Pilates e Fisioterapia | Manaus - AM",
     description:
       "Pilates terapêutico e fisioterapia em Manaus com atendimento individualizado. Viva sem dor.",
     images: [`${SITE_URL}/images/og-image.jpg`],
@@ -74,7 +74,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["MedicalBusiness", "LocalBusiness"],
   "@id": `${SITE_URL}/#business`,
-  name: "Studio Ruby Pilates e Fisioterapia",
+  name: "Studio Rubi Pilates e Fisioterapia",
   description:
     "Studio especializado em pilates terapêutico, fisioterapia, RPG e reabilitação funcional em Manaus. Atendimento individualizado com a Dra. Rúbia Torres.",
   url: SITE_URL,
@@ -139,7 +139,7 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Como funciona a consulta de avaliação no Studio Ruby?",
+      name: "Como funciona a consulta de avaliação no Studio Rubi?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "A avaliação é uma consulta inicial de 50 minutos onde a Dra. Rúbia faz um mapeamento completo da sua saúde, histórico de dores, postura e objetivos. A partir daí, é montado um protocolo exclusivo para você. Pode ser agendada pelo WhatsApp (92) 99285-5658 ou pelo formulário do site.",

@@ -33,7 +33,7 @@ export default function Hero() {
         <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
           <Image
             src="/images/session-adult.jpg"
-            alt="Sessão de pilates terapêutico no Studio Ruby em Manaus"
+            alt="Sessão de pilates terapêutico no Studio Rubi em Manaus"
             fill
             className="object-cover object-center opacity-10"
             sizes="50vw"

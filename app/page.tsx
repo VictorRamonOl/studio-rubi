@@ -20,7 +20,7 @@ export default function Home() {
       <Navbar />
       {/* 1. Atenção — proposta de valor acima da dobra */}
       <Hero />
-      {/* 2. Interesse — por que escolher o Studio Ruby */}
+      {/* 2. Interesse — por que escolher o Studio Rubi */}
       <Authority />
       {/* 3. Credibilidade — quem é a Dra. Rúbia */}
       <About />
