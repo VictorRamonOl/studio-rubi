@@ -56,3 +56,6 @@ yarn-error.log*
 .turbo
 
 .vercel
+
+# Instagram publishing history
+.ig-published.json

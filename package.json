@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ig:publish": "node scripts/publish-ig.mjs",
+    "ig:next": "node scripts/publish-ig.mjs --next",
+    "ig:dry": "node scripts/publish-ig.mjs --dry-run"
   },
   "dependencies": {
     "lucide-react": "^0.400.0",
