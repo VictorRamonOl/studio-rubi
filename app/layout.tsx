@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Playfair_Display, Inter } from "next/font/google"
 import "./globals.css"
+import ScrollTracker from "@/components/ScrollTracker"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -44,21 +45,12 @@ export const metadata: Metadata = {
     siteName: "Studio Rubi Pilates e Fisioterapia",
     locale: "pt_BR",
     type: "website",
-    images: [
-      {
-        url: `${SITE_URL}/images/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Studio Rubi Pilates e Fisioterapia em Manaus — Parque Dez",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Studio Rubi Pilates e Fisioterapia | Manaus - AM",
     description:
       "Pilates terapêutico e fisioterapia em Manaus com atendimento individualizado. Viva sem dor.",
-    images: [`${SITE_URL}/images/og-image.jpg`],
   },
   robots: { index: true, follow: true },
   verification: {
@@ -207,7 +199,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* TODO: Meta Pixel — substituir XXXXXXXXXXXXXXXXXX pelo seu Pixel ID */}
         {/* <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','XXXXXXXXXXXXXXXXXX');fbq('track','PageView');` }} /> */}
       </head>
-      <body>{children}</body>
+      <body>
+        <ScrollTracker />
+        {children}
+      </body>
     </html>
   )
 }

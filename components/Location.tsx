@@ -1,5 +1,8 @@
+"use client"
+
 import { MapPin, Clock, Phone, Instagram } from "lucide-react"
 import { CONTACT, HOURS, WHATSAPP_URL } from "@/lib/constants"
+import { trackPhoneClick, trackInstagramClick, trackWhatsAppClick } from "@/lib/analytics"
 
 export default function Location() {
   const mapsUrl =
@@ -61,6 +64,7 @@ export default function Location() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("audiences")}
                   className="flex items-center gap-3 text-dark hover:text-wine transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 text-wine flex-shrink-0" />
@@ -70,6 +74,7 @@ export default function Location() {
                   href={CONTACT.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackInstagramClick("location")}
                   className="flex items-center gap-3 text-dark hover:text-wine transition-colors text-sm"
                 >
                   <Instagram className="w-4 h-4 text-wine flex-shrink-0" />

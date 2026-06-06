@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Send, MessageCircle } from "lucide-react"
 import { WHATSAPP_URL } from "@/lib/constants"
-import { trackLeadFormSubmit, trackWhatsAppClick } from "@/lib/analytics"
+import { trackLeadFormSubmit, trackWhatsAppClick, trackFormStart } from "@/lib/analytics"
 
 type FormData = {
   name: string
@@ -34,10 +34,15 @@ export default function ContactForm() {
     bestTime: "",
   })
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [formStarted, setFormStarted] = useState(false)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
+    if (!formStarted) {
+      setFormStarted(true)
+      trackFormStart()
+    }
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 

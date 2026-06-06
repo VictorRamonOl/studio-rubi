@@ -7,6 +7,7 @@ import Services from "@/components/Services"
 import Audiences from "@/components/Audiences"
 import Homecare from "@/components/Homecare"
 import Packages from "@/components/Packages"
+import BlogPreview from "@/components/BlogPreview"
 import FAQ from "@/components/FAQ"
 import ContactForm from "@/components/ContactForm"
 import Location from "@/components/Location"
@@ -18,29 +19,18 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-      {/* 1. Atenção — proposta de valor acima da dobra */}
       <Hero />
-      {/* 2. Interesse — por que escolher o Studio Rubi */}
       <Authority />
-      {/* 3. Credibilidade — quem é a Dra. Rúbia */}
       <About />
-      {/* 4. Prova social — depoimentos reais (antes dos serviços para converter mais rápido) */}
       <Testimonials />
-      {/* 5. Desejo — o que fazemos e como ajudamos */}
       <Services />
-      {/* 6. Segmentação — para quem é cada serviço */}
       <Audiences />
-      {/* 7. Diferencial exclusivo — HomeCare */}
       <Homecare />
-      {/* 8. Planos — preços e próximos passos */}
       <Packages />
-      {/* 9. Objeções — perguntas frequentes */}
+      <BlogPreview />
       <FAQ />
-      {/* 10. Ação — formulário de contato simplificado */}
       <ContactForm />
-      {/* 11. Localização — onde estamos */}
       <Location />
-      {/* 12. Urgência final — CTA de fechamento */}
       <FinalCTA />
       <Footer />
       <WhatsAppButton />

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#681D31"/>
+      <stop offset="55%" stop-color="#C89E51"/>
+      <stop offset="100%" stop-color="#DBB06B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.5">
+      <stop offset="0%" stop-color="#F7F4EE" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#F7F4EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(880,170)" opacity="0.22">
+    <polygon points="100,10 190,60 190,180 100,230 10,180 10,60" fill="none" stroke="#F7F4EE" stroke-width="1.5"/>
+    <polygon points="100,40 160,72 160,168 100,200 40,168 40,72" fill="none" stroke="#F7F4EE" stroke-width="1"/>
+  </g>
+  <!-- Icon: leaf / movement curve -->
+  <g transform="translate(110,200)" stroke="#F7F4EE" stroke-width="6" fill="none" opacity="0.6" stroke-linecap="round">
+    <path d="M30 150 C 30 50, 130 30, 180 80 C 230 130, 130 170, 30 150 Z"/>
+    <path d="M50 130 Q 90 100 160 90"/>
+  </g>
+  <text x="100" y="170" font-family="Georgia, serif" font-size="22" fill="#F7F4EE" letter-spacing="6">CATEGORIA</text>
+  <text x="100" y="370" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#F7F4EE">Lifestyle &amp;</text>
+  <text x="100" y="445" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#F7F4EE">Prevenção</text>
+  <g transform="translate(100,540)">
+    <text font-family="Georgia, serif" font-size="22" fill="#F7F4EE" letter-spacing="3">STUDIO RUBI</text>
+    <text y="28" font-family="Inter, sans-serif" font-size="14" fill="#F7F4EE" opacity="0.7">Pilates &amp; Fisioterapia · Manaus</text>
+  </g>
+</svg>
