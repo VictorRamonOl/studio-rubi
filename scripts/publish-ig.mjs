@@ -140,10 +140,13 @@ async function buildSlideUrls(targetSlug) {
 // ─────────────────────────────────────────────────────────
 async function publishViaMake(targetSlug, urls, caption) {
   console.log("📡 Disparando webhook do Make.com...")
+  // Make.com Instagram Carousel requer cada item de Files com:
+  //   { media_type: "IMAGE", image_url: "..." }
   const payload = {
     slug: targetSlug,
     caption,
     image_urls: urls,
+    files: urls.map((url) => ({ media_type: "IMAGE", image_url: url })),
     site: SITE,
     published_at: new Date().toISOString().split("T")[0],
   }

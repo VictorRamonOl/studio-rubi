@@ -24,27 +24,16 @@ export async function GET(
   const slide = slides[i]
   const palette = CATEGORY_PALETTE[post.category]
 
-  const bg = `linear-gradient(${palette.angle}deg, ${palette.from} 0%, ${palette.via} 55%, ${palette.to} 100%)`
-
   const baseStyle: React.CSSProperties = {
     width: "100%",
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    background: bg,
+    background: `linear-gradient(${palette.angle}deg, ${palette.from} 0%, ${palette.via} 55%, ${palette.to} 100%)`,
     color: palette.text,
-    fontFamily: "Georgia, serif",
+    fontFamily: "serif",
     position: "relative",
     padding: "90px",
-  }
-
-  const glow: React.CSSProperties = {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: 700,
-    height: 700,
-    background: `radial-gradient(circle at top right, ${palette.accent}55, transparent 70%)`,
   }
 
   const brandFooter = (
@@ -53,24 +42,24 @@ export async function GET(
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-end",
-        marginTop: "auto",
         borderTop: `1px solid ${palette.accentSoft}`,
         paddingTop: 28,
-        fontFamily: "system-ui, sans-serif",
+        fontFamily: "sans-serif",
       }}
     >
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div
           style={{
-            fontFamily: "Georgia, serif",
+            fontFamily: "serif",
             fontSize: 32,
             color: palette.accent,
             letterSpacing: 4,
+            fontWeight: 700,
           }}
         >
           STUDIO RUBI
         </div>
-        <div style={{ fontSize: 22, color: palette.textSoft }}>
+        <div style={{ fontSize: 22, color: palette.textSoft, marginTop: 4 }}>
           @rubistudiopilates
         </div>
       </div>
@@ -79,11 +68,12 @@ export async function GET(
           fontSize: 22,
           color: palette.textSoft,
           textAlign: "right",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        Pilates &amp; Fisioterapia
-        <br />
-        Parque Dez · Manaus
+        <div>Pilates e Fisioterapia</div>
+        <div>Parque Dez · Manaus</div>
       </div>
     </div>
   )
@@ -93,41 +83,39 @@ export async function GET(
   if (slide.kind === "cover") {
     content = (
       <div style={baseStyle}>
-        <div style={glow} />
-
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <span
+          <div
             style={{
               alignSelf: "flex-start",
               fontSize: 24,
               padding: "14px 28px",
               borderRadius: 999,
-              background: `${palette.accent}26`,
+              background: `${palette.accent}33`,
               color: palette.accent,
               textTransform: "uppercase",
               letterSpacing: 6,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               fontWeight: 600,
             }}
           >
             {slide.category}
-          </span>
-          <span
+          </div>
+          <div
             style={{
               fontSize: 22,
               color: palette.textSoft,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               marginTop: 6,
             }}
           >
-            {slide.readingTime} min de leitura
-          </span>
+            {`${slide.readingTime} min de leitura`}
+          </div>
         </div>
 
         <div
           style={{
-            marginTop: "auto",
-            marginBottom: "auto",
+            flexGrow: 1,
+            justifyContent: "center",
             display: "flex",
             flexDirection: "column",
             gap: 26,
@@ -139,21 +127,21 @@ export async function GET(
               fontWeight: 700,
               lineHeight: 1.08,
               maxWidth: 880,
-              textShadow: "0 2px 18px rgba(0,0,0,0.25)",
+              fontFamily: "serif",
             }}
           >
             {slide.title}
           </div>
-          <div style={{ height: 1, width: 120, background: palette.accent }} />
+          <div style={{ height: 2, width: 120, background: palette.accent }} />
           <div
             style={{
               fontSize: 30,
               color: palette.textSoft,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               maxWidth: 800,
             }}
           >
-            Arrasta para ler →
+            Arrasta para ler
           </div>
         </div>
 
@@ -163,28 +151,26 @@ export async function GET(
   } else if (slide.kind === "topic") {
     content = (
       <div style={baseStyle}>
-        <div style={glow} />
-
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <div
             style={{
               fontSize: 26,
               padding: "10px 24px",
               borderRadius: 999,
-              background: `${palette.accent}26`,
+              background: `${palette.accent}33`,
               color: palette.accent,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               fontWeight: 700,
               letterSpacing: 3,
             }}
           >
-            0{slide.index}
+            {`0${slide.index}`}
           </div>
           <div
             style={{
               fontSize: 22,
               color: palette.textSoft,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               textTransform: "uppercase",
               letterSpacing: 4,
             }}
@@ -195,8 +181,8 @@ export async function GET(
 
         <div
           style={{
-            marginTop: "auto",
-            marginBottom: "auto",
+            flexGrow: 1,
+            justifyContent: "center",
             display: "flex",
             flexDirection: "column",
             gap: 36,
@@ -208,17 +194,17 @@ export async function GET(
               fontWeight: 700,
               lineHeight: 1.12,
               maxWidth: 880,
-              textShadow: "0 2px 14px rgba(0,0,0,0.22)",
+              fontFamily: "serif",
             }}
           >
             {slide.heading}
           </div>
-          <div style={{ height: 1, width: 100, background: palette.accent }} />
+          <div style={{ height: 2, width: 100, background: palette.accent }} />
           <div
             style={{
               fontSize: 32,
               color: palette.textSoft,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               lineHeight: 1.45,
               maxWidth: 880,
               whiteSpace: "pre-line",
@@ -234,31 +220,29 @@ export async function GET(
   } else {
     content = (
       <div style={baseStyle}>
-        <div style={glow} />
-
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          <span
+          <div
             style={{
               alignSelf: "flex-start",
               fontSize: 24,
               padding: "12px 26px",
               borderRadius: 999,
-              background: `${palette.accent}26`,
+              background: `${palette.accent}33`,
               color: palette.accent,
               textTransform: "uppercase",
               letterSpacing: 5,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               fontWeight: 600,
             }}
           >
             Próximo passo
-          </span>
+          </div>
         </div>
 
         <div
           style={{
-            marginTop: "auto",
-            marginBottom: "auto",
+            flexGrow: 1,
+            justifyContent: "center",
             display: "flex",
             flexDirection: "column",
             gap: 36,
@@ -270,6 +254,7 @@ export async function GET(
               fontWeight: 700,
               lineHeight: 1.1,
               maxWidth: 880,
+              fontFamily: "serif",
             }}
           >
             Vamos começar pela avaliação?
@@ -278,7 +263,7 @@ export async function GET(
             style={{
               fontSize: 30,
               color: palette.textSoft,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
               lineHeight: 1.5,
               maxWidth: 800,
             }}
@@ -293,7 +278,7 @@ export async function GET(
               display: "flex",
               flexDirection: "column",
               gap: 16,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "sans-serif",
             }}
           >
             <div
@@ -306,8 +291,15 @@ export async function GET(
                 fontWeight: 600,
               }}
             >
-              <span style={{ color: palette.accent, fontSize: 38 }}>💬</span>
-              WhatsApp · {slide.phone}
+              <div
+                style={{
+                  width: 14,
+                  height: 14,
+                  borderRadius: 999,
+                  background: palette.accent,
+                }}
+              />
+              {`WhatsApp · ${slide.phone}`}
             </div>
             <div
               style={{
@@ -318,7 +310,14 @@ export async function GET(
                 color: palette.textSoft,
               }}
             >
-              <span style={{ color: palette.accent, fontSize: 32 }}>🌐</span>
+              <div
+                style={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: 999,
+                  background: palette.accent,
+                }}
+              />
               {slide.site}
             </div>
             <div
@@ -330,8 +329,15 @@ export async function GET(
                 color: palette.textSoft,
               }}
             >
-              <span style={{ color: palette.accent, fontSize: 32 }}>📍</span>
-              Rua Carlos Lecor, 1005 — Parque Dez
+              <div
+                style={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: 999,
+                  background: palette.accent,
+                }}
+              />
+              Rua Carlos Lecor, 1005 - Parque Dez
             </div>
           </div>
         </div>
