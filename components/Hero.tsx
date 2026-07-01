@@ -55,12 +55,12 @@ export default function Hero() {
 
             <motion.h1 variants={item} className="mt-6 font-serif text-5xl font-bold leading-[1.03] text-wine md:text-6xl lg:text-[4rem]">
               Chega de viver com dor.
-              <span className="mt-2 block text-gold">Volte a se mover.</span>
+              <span className="mt-2 block text-gold">Movimente-se sem medo.</span>
             </motion.h1>
 
             <motion.p variants={item} className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-dark/70 lg:mx-0">
               Pilates terapêutico e fisioterapia com atendimento individualizado no Parque Dez.
-              A Dra. Rúbia Torres cuida de você com técnica, escuta e um protocolo feito para o seu corpo.
+              A Dra. Rúbia Torres cuida de você com um protocolo feito exclusivamente para o seu corpo.
             </motion.p>
 
             <motion.div variants={item} className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
