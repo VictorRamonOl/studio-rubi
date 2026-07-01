@@ -55,7 +55,28 @@ export default function Hero() {
 
             <motion.h1 variants={item} className="mt-6 font-serif text-5xl font-bold leading-[1.03] text-wine md:text-6xl lg:text-[4rem]">
               Chega de viver com dor.
-              <span className="mt-2 block text-gold">Movimente-se sem medo.</span>
+              <span className="mt-3 block">
+                <span className="relative inline-block text-gold">
+                  Movimente-se sem medo.
+                  <motion.svg
+                    className="absolute -bottom-2 left-0 h-3.5 w-full"
+                    viewBox="0 0 320 12"
+                    fill="none"
+                    preserveAspectRatio="none"
+                    aria-hidden
+                  >
+                    <motion.path
+                      d="M4 8 C 70 2, 130 11, 190 6 S 270 2, 316 8"
+                      stroke="#C89E51"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ delay: 0.9, duration: 0.9, ease: "easeInOut" }}
+                    />
+                  </motion.svg>
+                </span>
+              </span>
             </motion.h1>
 
             <motion.p variants={item} className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-dark/70 lg:mx-0">
