@@ -1,0 +1,7 @@
+# Config mínima para o Supabase CLI (npx supabase ...).
+# Se der erro de versão, rode `npx supabase init` para gerar a config completa
+# e mantenha esta pasta supabase/migrations.
+project_id = "rubi-control"
+
+[db]
+major_version = 15

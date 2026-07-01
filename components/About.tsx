@@ -61,7 +61,7 @@ export default function About() {
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-dark mb-5">
               Dra. Rúbia Torres —{" "}
-              <span className="text-wine">mais de 12 anos</span>{" "}
+              <span className="text-wine">mais de 14 anos</span>{" "}
               cuidando de corpos e histórias
             </h2>
             <p className="text-muted text-base leading-relaxed mb-4">

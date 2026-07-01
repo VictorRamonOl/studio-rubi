@@ -205,7 +205,7 @@ export default function ServicePageTemplate({
                 </span>
               </div>
               <h3 className="font-serif text-2xl md:text-3xl text-cream mb-4">
-                Dra. Rúbia Torres — fisioterapeuta com 12 anos de experiência
+                Dra. Rúbia Torres — fisioterapeuta com 14 anos de experiência
               </h3>
               <p className="text-cream/70 leading-relaxed text-base mb-6 max-w-2xl">
                 Formada em 2012, com prática clínica diária em Manaus e

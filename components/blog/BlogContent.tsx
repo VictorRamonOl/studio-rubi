@@ -1,8 +1,22 @@
 import { MessageCircle } from "lucide-react"
 import type { ContentBlock } from "@/data/blog"
 import { WHATSAPP_URL } from "@/lib/constants"
+import { headingId } from "@/lib/blog-toc"
 
 export default function BlogContent({ blocks }: { blocks: ContentBlock[] }) {
+  // ids dos títulos (âncoras do índice) — mesma lógica de extractHeadings
+  const ids: Record<number, string> = {}
+  const seen = new Set<string>()
+  blocks.forEach((b, i) => {
+    if (b.type === "h2" || b.type === "h3") {
+      let id = headingId(b.text)
+      let n = 2
+      while (seen.has(id)) id = `${headingId(b.text)}-${n++}`
+      seen.add(id)
+      ids[i] = id
+    }
+  })
+
   return (
     <div className="prose-blog max-w-none">
       {blocks.map((block, i) => {
@@ -11,7 +25,8 @@ export default function BlogContent({ blocks }: { blocks: ContentBlock[] }) {
             return (
               <h2
                 key={i}
-                className="font-serif text-2xl md:text-3xl text-dark mt-12 mb-4 leading-tight"
+                id={ids[i]}
+                className="font-serif text-2xl md:text-3xl text-dark mt-12 mb-4 leading-tight scroll-mt-28"
               >
                 {block.text}
               </h2>
@@ -20,7 +35,8 @@ export default function BlogContent({ blocks }: { blocks: ContentBlock[] }) {
             return (
               <h3
                 key={i}
-                className="font-serif text-xl text-dark mt-8 mb-3 leading-tight"
+                id={ids[i]}
+                className="font-serif text-xl text-dark mt-8 mb-3 leading-tight scroll-mt-28"
               >
                 {block.text}
               </h3>

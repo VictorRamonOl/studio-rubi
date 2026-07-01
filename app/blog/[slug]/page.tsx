@@ -8,6 +8,9 @@ import {
   getRelatedPosts,
 } from "@/data/blog"
 import { getServiceBySlug } from "@/data/service-pages"
+import { getRemotePostBySlug, getRemotePosts } from "@/lib/blog-remote"
+import { extractHeadings } from "@/lib/blog-toc"
+import TableOfContents from "@/components/blog/TableOfContents"
 import {
   buildMetadata,
   SITE_URL,
@@ -24,16 +27,18 @@ import BlogCover from "@/components/blog/BlogCover"
 import PageViewTracker from "@/components/PageViewTracker"
 import { WHATSAPP_URL } from "@/lib/constants"
 
+export const revalidate = 300
+
 export function generateStaticParams() {
   return ALL_BLOG_POSTS.map((p) => ({ slug: p.slug }))
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: { slug: string }
-}): Metadata {
-  const post = getPostBySlug(params.slug)
+}): Promise<Metadata> {
+  const post = getPostBySlug(params.slug) ?? (await getRemotePostBySlug(params.slug))
   if (!post) return { title: "Artigo não encontrado" }
   return buildMetadata({
     title: post.metaTitle,
@@ -66,16 +71,28 @@ function formatDate(iso: string) {
   return `${parseInt(d)} de ${months[parseInt(m) - 1]} de ${y}`
 }
 
-export default function BlogPostPage({
+export default async function BlogPostPage({
   params,
 }: {
   params: { slug: string }
 }) {
-  const post = getPostBySlug(params.slug)
+  const post = getPostBySlug(params.slug) ?? (await getRemotePostBySlug(params.slug))
   if (!post) notFound()
 
   const url = `${SITE_URL}/blog/${post.slug}`
-  const related = getRelatedPosts(post.slug, 3)
+  const coverImageUrl = post.coverImage
+    ? post.coverImage.startsWith("http")
+      ? post.coverImage
+      : `${SITE_URL}${post.coverImage}`
+    : `${SITE_URL}/opengraph-image`
+  // "Continue lendo": relacionados por categoria; se não houver (posts novos do
+  // app), cai para os artigos mais recentes.
+  let related = getRelatedPosts(post.slug, 3)
+  if (related.length === 0) {
+    const remote = await getRemotePosts()
+    related = [...remote, ...ALL_BLOG_POSTS].filter((p) => p.slug !== post.slug).slice(0, 3)
+  }
+  const headings = extractHeadings(post.content)
   const ctaService = post.ctaServiceSlug
     ? getServiceBySlug(post.ctaServiceSlug)
     : undefined
@@ -90,7 +107,7 @@ export default function BlogPostPage({
               title: post.title,
               description: post.metaDescription,
               url,
-              image: `${SITE_URL}${post.coverImage}`,
+              image: coverImageUrl,
               datePublished: post.publishedAt,
             })
           ),
@@ -180,6 +197,7 @@ export default function BlogPostPage({
           {/* Body */}
           <div className="bg-white pb-16">
             <div className="max-w-3xl mx-auto px-6">
+              <TableOfContents headings={headings} />
               <BlogContent blocks={post.content} />
             </div>
           </div>
@@ -222,6 +240,42 @@ export default function BlogPostPage({
                       Falar no WhatsApp
                     </a>
                   </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* CTA de avaliação — aparece em todo post sem CTA de serviço (ex: posts do app) */}
+          {!ctaService && (
+            <section className="bg-cream py-12">
+              <div className="max-w-3xl mx-auto px-6">
+                <div
+                  className="rounded-3xl p-8 lg:p-10 shadow-lg"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #4A1222 0%, #681D31 60%, #742239 100%)",
+                  }}
+                >
+                  <p className="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-3">
+                    Studio Rubi · Manaus
+                  </p>
+                  <h3 className="font-serif text-2xl md:text-3xl text-cream mb-3">
+                    Agende sua avaliação
+                  </h3>
+                  <p className="text-cream/70 leading-relaxed mb-6">
+                    Numa avaliação individual, a gente identifica o melhor caminho
+                    pro seu corpo — Pilates, Fisioterapia ou RPG, feito sob medida
+                    pra você.
+                  </p>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-gold text-dark px-6 py-3 rounded-full font-semibold text-sm hover:bg-gold-mid transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    Agendar avaliação no WhatsApp
+                  </a>
                 </div>
               </div>
             </section>

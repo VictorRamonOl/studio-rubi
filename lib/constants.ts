@@ -4,6 +4,10 @@ export const WHATSAPP_MESSAGE = encodeURIComponent(
 )
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
+// App privado (gestão + portal do paciente). Ajustar quando publicar o subdomínio.
+export const APP_URL =
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://app.rubistudiopilates.com.br"
+
 export const CONTACT = {
   phone: "(92) 99285-5658",
   email: "rubistudiopilates@gmail.com",
@@ -24,7 +28,7 @@ export const HOURS = [
 
 export const STATS = [
   { value: "+1.600", label: "Atendimentos realizados" },
-  { value: "12 anos", label: "De experiência clínica" },
+  { value: "14 anos", label: "De experiência clínica" },
   { value: "3 pessoas", label: "Máximo por horário" },
   { value: "5 serviços", label: "Especializados" },
 ]

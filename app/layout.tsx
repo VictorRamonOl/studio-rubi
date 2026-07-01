@@ -20,7 +20,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rubistudiopilates.
 export const metadata: Metadata = {
   title: "Studio Rubi Pilates e Fisioterapia em Manaus | Parque Dez",
   description:
-    "Pilates terapêutico e fisioterapia em Manaus no Parque Dez. Atendimento individualizado com a Dra. Rúbia Torres — fisioterapeuta com 12 anos de experiência. Trate dor lombar, faça pilates para gestantes, RPG e reabilitação. Agende: (92) 99285-5658.",
+    "Pilates terapêutico e fisioterapia em Manaus no Parque Dez. Atendimento individualizado com a Dra. Rúbia Torres — fisioterapeuta com 14 anos de experiência. Trate dor lombar, faça pilates para gestantes, RPG e reabilitação. Agende: (92) 99285-5658.",
   keywords: [
     "pilates em manaus",
     "fisioterapia em manaus",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Studio Rubi Pilates e Fisioterapia | Manaus - AM",
     description:
-      "Pilates terapêutico e fisioterapia em Manaus com atendimento individualizado. Dra. Rúbia Torres — 12 anos de experiência. Viva sem dor, mova-se com leveza.",
+      "Pilates terapêutico e fisioterapia em Manaus com atendimento individualizado. Dra. Rúbia Torres — 14 anos de experiência. Viva sem dor, mova-se com leveza.",
     url: SITE_URL,
     siteName: "Studio Rubi Pilates e Fisioterapia",
     locale: "pt_BR",

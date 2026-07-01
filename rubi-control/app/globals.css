@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Marca Studio Rubi — copiada do site público (tailwind.config.ts) */
+@theme {
+  --color-wine: #681d31;
+  --color-wine-light: #742239;
+  --color-wine-dark: #4a1222;
+  --color-gold: #c89e51;
+  --color-gold-light: #efe1a2;
+  --color-cream: #f7f4ee;
+  --color-dark: #2b2224;
+  --color-muted: #8b7a74;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-cream);
+  color: var(--color-dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
